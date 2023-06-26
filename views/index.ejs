@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>Document</title>
+  </head>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #dfffe3;
+      margin: 0;
+      padding: 0;
+    }
+
+    .pp {
+      display: flex;
+      max-width: 45em;
+      margin: 30px auto;
+      padding: 20px;
+      /* border-radius: 5px; */
+
+      flex-direction: column;
+      box-shadow: rgb(230, 233, 249) 0px 0px 2em;
+      background: rgb(241, 247, 254);
+      /* padding: 2em; */
+      border-radius: 30px;
+      gap: 1em;
+    }
+    #ii {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 1em;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      /* margin-bottom: 5px; */
+      font-weight: bold;
+      margin-left: 20px;
+    }
+
+    input[type="url"] {
+      width: 92%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      margin-bottom: 2em;
+    }
+
+    button[type="submit"] {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    #o {
+      width: 50%;
+    }
+
+    .table-wrapper {
+      margin: 10px 70px 70px;
+      box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    .fl-table {
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: normal;
+      border: none;
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 100%;
+      white-space: nowrap;
+      background-color: white;
+    }
+
+    .fl-table td,
+    .fl-table th {
+      text-align: center;
+      padding: 8px;
+    }
+
+    .fl-table td {
+      border-right: 1px solid #f8f8f8;
+      font-size: 12px;
+    }
+
+    .fl-table thead th {
+      color: #ffffff;
+      background: #4fc3a1;
+    }
+
+    .fl-table thead th:nth-child(odd) {
+      color: #ffffff;
+      background: #324960;
+    }
+
+    .fl-table tr:nth-child(even) {
+      background: #f8f8f8;
+    }
+
+    @media (max-width: 767px) {
+      .fl-table {
+        display: block;
+        width: 100%;
+      }
+      .table-wrapper:before {
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+      }
+      .fl-table thead,
+      .fl-table tbody,
+      .fl-table thead th {
+        display: block;
+      }
+      .fl-table thead th:last-child {
+        border-bottom: none;
+      }
+      .fl-table thead {
+        float: left;
+      }
+      .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+      }
+      .fl-table td,
+      .fl-table th {
+        padding: 20px 0.625em 0.625em 0.625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+      }
+      .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+      }
+      .fl-table tbody tr {
+        display: table-cell;
+      }
+      .fl-table tbody tr:nth-child(odd) {
+        background: none;
+      }
+      .fl-table tr:nth-child(even) {
+        background: transparent;
+      }
+      .fl-table tr td:nth-child(odd) {
+        background: #f8f8f8;
+        border-right: 1px solid #e6e4e4;
+      }
+      .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #e6e4e4;
+      }
+      .fl-table tbody td {
+        display: block;
+        text-align: center;
+      }
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <h1>URL Shrinker</h1>
+      <div class="pp">
+        <form action="/shortUrls" method="POST">
+          <label for="fullUrl">Url:</label>
+          <div id="ii">
+            <input
+              required
+              placeholder="Url"
+              type="url"
+              name="fullUrl"
+              id="fullUrl"
+            />
+            <input
+              required
+              placeholder="Note"
+              type="text"
+              name="note"
+              id="fullUrl"
+            />
+            <button type="submit" id="o">Shrink</button>
+          </div>
+        </form>
+        <form action="/search" method="GET" id="search-form">
+           <input
+           type="text"
+           id="search-input"
+           placeholder="Search URL"
+           name="search"
+         />
+  <button type="submit">Search</button>
+</form>
+
+        <form action="/logout" method="POST">
+          <button type="submit">Log Out</button>
+        </form>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="fl-table">
+          <thead>
+            <tr>
+              <th>Full URL</th>
+              <th>Short URL</th>
+              <th>Note</th>
+              <th>Clicks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% shortUrls.forEach(shortUrl => { %>
+            <tr>
+              <td><a href="<%= shortUrl.full %>"><%= shortUrl.full %></a></td>
+              <td><a href="/redirect/<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
+              <td><%= shortUrl.note %></a></td>
+              <td><%= shortUrl.clicks %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
