@@ -8,10 +8,10 @@ exports.url = async (userId) => {
         user: new mongoose.Types.ObjectId(userId),
       })
       .exec();
-    return urls; // Return the URLs as JSON
+    return urls; 
   } catch (error) {
     console.error("Error fetching URLs:", error);
-    throw error; // Rethrow the error to be handled by the caller
+    throw error; 
   }
 };
 exports.addUrl = async (userId, Url, note) => {
@@ -55,7 +55,7 @@ exports.search = async (userId, search) => {
 
     return results;
   } catch (error) {
-    // Handle error
+
     console.error(error);
     return null;
   }

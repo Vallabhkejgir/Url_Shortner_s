@@ -30,11 +30,19 @@
       border-radius: 30px;
       gap: 1em;
     }
-    #ii {
+    .ii {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 1em;
+      margin-bottom: 0.7em;
+    }
+    #search-form {
+      /* margin-left: 1rem; */
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
 
     h1 {
@@ -44,12 +52,20 @@
 
     label {
       display: block;
-      /* margin-bottom: 5px; */
+      margin-bottom: 5px;
       font-weight: bold;
       margin-left: 20px;
     }
 
     input[type="url"] {
+      width: 92%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      margin-bottom: 2em;
+    }
+    input[type="text"] {
       width: 92%;
       padding: 10px;
       font-size: 16px;
@@ -75,9 +91,12 @@
       margin: 10px 70px 70px;
       box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
     }
+    #uu{
+      background-color: #dd3434;
+    }
 
     .fl-table {
-      border-radius: 5px;
+      border-radius: 12px;
       font-size: 12px;
       font-weight: normal;
       border: none;
@@ -85,28 +104,32 @@
       width: 100%;
       max-width: 100%;
       white-space: nowrap;
-      background-color: white;
+      background-color: rgb(213, 254, 255);
     }
+
 
     .fl-table td,
     .fl-table th {
       text-align: center;
+      border-radius: 3px;
       padding: 8px;
     }
 
     .fl-table td {
-      border-right: 1px solid #f8f8f8;
+      border-right: 1px solid #baffe0;
+      border-radius: 3px;
       font-size: 12px;
     }
 
     .fl-table thead th {
       color: #ffffff;
-      background: #4fc3a1;
+      border-radius: 3px;
+      background: #7e0202;
     }
 
     .fl-table thead th:nth-child(odd) {
       color: #ffffff;
-      background: #324960;
+      background: #2400b6;
     }
 
     .fl-table tr:nth-child(even) {
@@ -195,7 +218,7 @@
       <div class="pp">
         <form action="/shortUrls" method="POST">
           <label for="fullUrl">Url:</label>
-          <div id="ii">
+          <div class="ii">
             <input
               required
               placeholder="Url"
@@ -203,6 +226,9 @@
               name="fullUrl"
               id="fullUrl"
             />
+          </div>
+          <label for="fullUrl">Note:</label>
+          <div class="ii">
             <input
               required
               placeholder="Note"
@@ -223,8 +249,8 @@
   <button type="submit">Search</button>
 </form>
 
-        <form action="/logout" method="POST">
-          <button type="submit">Log Out</button>
+        <form action="/logout" method="POST" >
+          <button type="submit" id="uu">Log Out</button>
         </form>
       </div>
 

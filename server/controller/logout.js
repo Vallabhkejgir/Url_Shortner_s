@@ -1,8 +1,8 @@
-// Logout controller
+
 const logout = (req, res) => {
-  res.clearCookie("token"); // Clear the token cookie
-  res.redirect("/login"); // Redirect to the login page
+  res.clearCookie("token"); 
+  res.redirect("/login"); 
 };
 
-// Export the logout controller
+
 module.exports = logout;
